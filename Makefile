@@ -1,5 +1,4 @@
-NASM = nasm
-NASM_FLAGS = -f bin
+i686 = i686-elf-as
 
 BOOT_SECTOR = boot.asm
 BOOT_BIN = boot.bin
@@ -7,7 +6,7 @@ BOOT_BIN = boot.bin
 all: $(BOOT_BIN)
 
 $(BOOT_BIN): $(BOOT_SECTOR)
-	$(NASM) -f bin $(NASM_FLAGS) $(BOOT_SECTOR) -o $(BOOT_BIN)
+	$(i686) $(BOOT_SECTOR) -o $(BOOT_BIN)
 
 clean:
 	rm -f *.bin *.o *.elf
